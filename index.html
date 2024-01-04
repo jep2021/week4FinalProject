@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+  <title>Movies</title>
+</head>
+
+<body>
+  <div class="background__img">
+    <nav>
+          <div class="nav__container">
+              <a class="logo__link" href="."><img src="./assets/movieLogo.png" class="logo"></a> 
+          </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="search__container">
+          <div class="search__bar">
+            <i class="fa fa-search"></i>
+            <input class="search__box" id="movieSearch" type="search" placeholder="Search Movies..." onsearch="searchMovie(event)">
+          </div>
+        </div>
+        <div class="results__container"></div>
+        <div class="sort__movie">
+          <p class="filter__text">Filter:</p><select class="filter" id="filter" onchange="filterMovies(event)">
+            <option value="">Sort</option>
+            <option value="Newest">Newest</option>
+            <option value="Oldest">Oldest</option>
+          </select>
+        </div>
+        <div class="movies__container">
+          <div class="movie-list">
+            <i class="fas fa-spinner movies__loading--spinner"></i>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="index.js"></script>
+
+</html>
