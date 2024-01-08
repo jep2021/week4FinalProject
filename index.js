@@ -3,6 +3,7 @@
 
 const moviesListEl = document.querySelector(".movie-list");
 const moviesLoading = document.querySelector(".movies__container");
+const moviesRefresh = document.querySelector(".movie-list");
 const searchResults = document.querySelector(".results__container");
 let movies;
 
@@ -10,9 +11,9 @@ let movies;
 
 //search through the API with the value in the input text
 function searchMovie(name) {
-
     const movieName = name.target.value;
-    moviesLoading.classList += ' movies__loading';
+    moviesListEl.innerHTML = refreshMovies();
+    moviesLoading.classList += ' movies__loading'; //inject the loading state class 
     setTimeout(() => {
         getMovie(movieName);
     }, 1000);
@@ -25,7 +26,7 @@ async function getMovie(name) {
     const moviesResult = await fetch(`https://www.omdbapi.com/?apikey=28916474&s=${name}`);
     const moviesData = await moviesResult.json();
     const selectBox = document.getElementById("filter");
-    moviesLoading.classList.remove('movies__loading');
+    moviesLoading.classList.remove('movies__loading'); //delete loading state class after successfully retrieving the API call
     if(moviesData.Response === 'False') {
         selectBox.selectedIndex = 0;
         moviesListEl.innerHTML = `<h2>Sorry, there were no results related to the search: "${name}"</h2>`
@@ -35,9 +36,7 @@ async function getMovie(name) {
         const movieList = moviesData.Search.slice(0, 6);
         selectBox.selectedIndex = 0;
         movies = movieList;
-        
         moviesListEl.innerHTML = movies.map((movie) => movieHTML(movie)).join("");
-
     }
     
 }
@@ -69,4 +68,9 @@ function renderFilteredMovies(filter) {
         movies = filteredMovies;
     }
     moviesListEl.innerHTML = movies.map((movie) => movieHTML(movie)).join("");
+}
+
+
+function refreshMovies() {
+    return ``;
 }

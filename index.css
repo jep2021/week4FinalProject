@@ -64,7 +64,7 @@ nav {
     padding: 0;
     width: 100%;
     max-width: 1200px;
-    min-height: 1200px;
+    min-height: 1440px;
 }
 
 .row {
@@ -84,6 +84,7 @@ nav {
   h4 {
     font-size: 14px;
     color: #e9e9e9;
+    margin: 4px 0px auto;
   }
 
   h2 {
@@ -99,6 +100,7 @@ nav {
     width: auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   
   .movie {
@@ -175,15 +177,14 @@ i {
   margin-top: 12px;
 }
 
-
 .movies__loading {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 60px;
     font-size: 60px;
     color: #e9e9e9;
-
+    position: absolute;
+    top: 500px;
 }
 
 .movies__loading--spinner {
